@@ -1,6 +1,16 @@
+const jsonContentTypesArr = [
+    'application/json', 
+    'application/problem+json', 
+    'application/vnd.api+json', 
+    'application/hal+json'
+];
+
 export const isJsonReq = (req)=> {
     const contentType = req && req.headers && req.headers['content-type'];
-    if (contentType && contentType.toLowerCase().includes('application/json')) {
+
+    const normalizedContentType = contentType && contentType.toLowerCase();
+
+    if (normalizedContentType && jsonContentTypesArr.some((value)=> normalizedContentType.includes(value))) {
         return true;
     }
 
@@ -8,7 +18,9 @@ export const isJsonReq = (req)=> {
 };
 
 const checkMethod = (req, method)=> {
-    if (method && method.toLowerCase() === method) {
+    const normalizedReqMethod  = req && req.method && req.method && req.method.toLowerCase();
+    
+    if (normalizedReqMethod === method) {
         return true;
     }
 
