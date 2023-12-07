@@ -3,6 +3,8 @@
 
 Check if the current request is json, express js, next js, any node js server side code. (supports module and commonJS).
 
+https://shadiabuhilal.github.io/is-json-request/
+
 -----------
 
 ## Usage
