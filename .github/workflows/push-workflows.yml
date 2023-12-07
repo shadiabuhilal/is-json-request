@@ -5,7 +5,7 @@ name: push job
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   call-resuable-workflows:
