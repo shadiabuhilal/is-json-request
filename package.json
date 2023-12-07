@@ -9,10 +9,13 @@
     "require": "./index.cjs"
   },
   "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
     "test": "nyc --reporter=html mocha tests/index.spec.js",
     "buildcjs": "npx rollup ./index.js --file ./index.cjs --format cjs",
     "build": "npm run buildcjs && npm run document",
-    "document": "jsdoc ./index.js -c .jsdoc.json -d ./docs -R README.md -p"
+    "document": "jsdoc ./index.js -c .jsdoc.json -d ./docs -R README.md -p",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -44,11 +47,23 @@
   },
   "homepage": "https://github.com/shadiabuhilal/is-json-request#readme",
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/release-notes-generator": "^12.1.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "docdash": "^2.0.2",
+    "eslint": "^8.55.0",
     "expect.js": "^0.3.1",
     "jsdoc": "^4.0.2",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
-    "rollup": "^4.6.1"
+    "rollup": "^4.6.1",
+    "semantic-release": "^22.0.10"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

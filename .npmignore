@@ -4,3 +4,4 @@ docs/
 .nyc_output
 .jsdoc.json
 README.md
+.releaserc.json
