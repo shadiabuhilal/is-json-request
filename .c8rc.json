@@ -1,10 +1,15 @@
 {
   "all": true,
   "clean": true,
+  "check-coverage": true,
   "exclude": [
     "**/*.cjs",
     "coverage/",
     "docs/"
+  ],
+  "reporter": [
+    "text",
+    "html"
   ],
   "branches": 100,
   "lines": 100,

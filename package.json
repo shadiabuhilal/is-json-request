@@ -11,7 +11,7 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "c8 --reporter=text --reporter=html mocha ./tests/index.spec.js",
+    "test": "c8 mocha ./tests/index.spec.js",
     "buildcjs": "npx rollup ./index.js --file ./index.cjs --format cjs",
     "build": "npm run buildcjs && npm run document",
     "document": "jsdoc ./index.js -c .jsdoc.json -d ./docs -R README.md -p",
