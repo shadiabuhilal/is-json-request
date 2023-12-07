@@ -5,3 +5,5 @@ docs/
 .jsdoc.json
 README.md
 .releaserc.json
+.nycrc.json
+.c8rc.json

@@ -5,9 +5,9 @@
  * @description Supported JSON content type values ['application/json', 'application/problem+json', 'application/vnd.api+json', 'application/hal+json'].
  */
 const jsonContentTypes = [
-    'application/json', 
-    'application/problem+json', 
-    'application/vnd.api+json', 
+    'application/json',
+    'application/problem+json',
+    'application/vnd.api+json',
     'application/hal+json'
 ];
 
@@ -19,21 +19,21 @@ const jsonContentTypes = [
  * @param {string} req.headers."content-type" - Http request content-type header
  * @returns {boolean}
  */
-const isJsonReq = (req)=> {
+const isJsonReq = (req) => {
     const contentType = req && req.headers && req.headers['content-type'];
 
     const normalizedContentType = contentType && contentType.toLowerCase();
 
-    if (normalizedContentType && jsonContentTypes.some((value)=> normalizedContentType.includes(value))) {
+    if (normalizedContentType && jsonContentTypes.some((value) => normalizedContentType.includes(value))) {
         return true;
     }
 
     return false;
 };
 
-const checkMethod = (req, method)=> {
+const checkMethod = (req, method) => {
     const normalizedReqMethod  = req && req.method && req.method && req.method.toLowerCase();
-    
+
     if (normalizedReqMethod === method) {
         return true;
     }
@@ -48,16 +48,16 @@ const checkMethod = (req, method)=> {
  * @param {string} req.method - Http request method string
  * @returns {boolean}
  */
-const isGetReq = (req)=> checkMethod(req, 'get');
+const isGetReq = (req) => checkMethod(req, 'get');
 
 /**
- * @function 
+ * @function
  * @description Function that check if current request is a http POST method request or not.
  * @param {Object} req - Http request object
  * @param {string} req.method - Http request method string
  * @returns {boolean}
  */
-const isPostReq = (req)=> checkMethod(req, 'post');
+const isPostReq = (req) => checkMethod(req, 'post');
 
 /**
  * @function
@@ -66,16 +66,16 @@ const isPostReq = (req)=> checkMethod(req, 'post');
  * @param {string} req.method - Http request method string
  * @returns {boolean}
  */
-const isPutReq = (req)=> checkMethod(req, 'put');
+const isPutReq = (req) => checkMethod(req, 'put');
 
 /**
- * @function 
+ * @function
  * @description Function that check if current request is a http DELETE method request or not.
  * @param {Object} req - Http request object
  * @param {string} req.method - Http request method string
  * @returns {boolean}
  */
-const isDeleteReq = (req)=> checkMethod(req, 'delete');
+const isDeleteReq = (req) => checkMethod(req, 'delete');
 
 exports.isDeleteReq = isDeleteReq;
 exports.isGetReq = isGetReq;
