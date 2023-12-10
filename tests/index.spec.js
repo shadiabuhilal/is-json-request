@@ -44,6 +44,15 @@ describe('is-json-request util', () => {
                     }
                 })
             ).to.be.ok();
+
+            const headersMap = new Map();
+            headersMap.set('content-type', 'application/json');
+
+            expect(
+                isJsonReq({
+                    headers: headersMap
+                })
+            ).to.be.ok();
         });
 
         it('should return false', () => {
