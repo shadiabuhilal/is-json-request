@@ -9,6 +9,15 @@ const jsonContentTypes = [
     'application/hal+json'
 ];
 
+const getReqHeader = (req, name) => {
+    if (req && req.headers) {
+        if (req.headers.get) {
+            return req.headers.get(name);
+        }
+        return req.headers[name];
+    }
+};
+
 /**
  * @function
  * @description Function that check if current request is a json request or not.
@@ -18,7 +27,7 @@ const jsonContentTypes = [
  * @returns {boolean}
  */
 export const isJsonReq = (req) => {
-    const contentType = req && req.headers && req.headers['content-type'];
+    const contentType = getReqHeader(req,'content-type');
 
     const normalizedContentType = contentType && contentType.toLowerCase();
 
